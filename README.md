@@ -3,7 +3,7 @@
 MSO_E5_Dev_AutoRenew is a Python application based on Git Actions that uses Microsoft Graph API to activate Microsoft Office 365 E5 Developer Trail membership auto-renewal automatically. This guide will provide you with easy-to-understand steps for setting up and running the application.
 
 ### Special Notes/Thanks ###
-* Normal version address: [https://github.com/kylierst/MSO_E5_Dev_AutoRenew_REVISION_2](https://github.com/kylierst/MSO_E5_Dev_AutoRenew)
+* Normal version address: https://github.com/HarryVed/Microsoft-Developer-Subscription-Renew-Free
 * Thanks to Ken5998 for code improvements and fix job skipping
 
 ## **Prerequisites**
@@ -17,16 +17,23 @@ MSO_E5_Dev_AutoRenew is a Python application based on Git Actions that uses Micr
 
 1. Fork the MSO_E5_Dev_AutoRenew repository to your GitHub account.
 2. Register a new application in Azure Active Directory.
-    - Select any organization directory, select "Web" for the redirect URL, and enter "**[http://localhost:53682/](http://localhost:53682/)**" for the redirect URL.
-    - Save the Application ID and Secret.
-3. Set application permissions.
+    - Go to https://entra.microsoft.com/
+    - Applications > App reginstrations > New registration
+    - Select "Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)"
+    - Select "Web" for the redirect URL, and enter "**[http://localhost:53682/](http://localhost:53682/)**" for the redirect URL.
+    - Save Application ID
+    - Go to Certificates & Secrets > New 
+    - Save the Secret value.
+3. Set API permissions.
+    - Go to API Permissions > NEW
+    - Select Microsoft graph > Application permissions
     - Select the following permissions: **`files.read.all`**, **`files.readwrite.all`**, **`sites.read.all`**, **`sites.readwrite.all`**, **`user.read.all`**, **`user.readwrite.all`**, **`directory.read.all`**, **`directory.readwrite.all`**, **`mail.read`**, **`mail.readwrite`**, **`mailboxsetting.read`**, and **`mailboxsetting.readwrite`**.
-    - Grant permission for all 13 selected permissions.
+    - "Grant admin consect for MSFT" for all 13 selected permissions.
 4. install rclone in your system. It is required to get refresh token (one time only)
 5. Execute the command **`rclone authorize "onedrive" "id" "secret"`**.
-    - Confirm the prompt and save the refresh token.
     - **id** is the Application ID you get it from previous steps
     - **secret** is the Application secret you get it from previous steps
+    - Execute, Select admin account the prompt and save the refresh token.
 6. Install JsonHandle chrome extention and open it. Paste the access_token acquired from previous step in the dialog box and copy the refresh token from it
 7. Keep Application ID, Secret, Refresh_token handly you will need it in the next step
 8. Go to the project settings and from the left hand side menu select Secrets and Variables > Actions
@@ -39,7 +46,7 @@ MSO_E5_Dev_AutoRenew is a Python application based on Git Actions that uses Micr
     - Set the name to **`GITHUB_TOKEN`**.
     - Check the options **`repo`**, **`admin:repo_hook`**, and **`workflow`**.
     - Generate the token.
-12. Click on the star button at the top right corner of the page to call it once.
+12. Run the action Workflow
 13. Click on the Actions tab above to see the log of each run and check if the API is called correctly and if there are any errors.
 
 ## **Additional Information**
