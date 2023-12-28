@@ -73,7 +73,8 @@ def main():
             else:
                 failed +=1
                 print(f'{success+failed}th Call failed !!!')
-                print(response.text)
+                print("Endpoint :", endpoint)
+                print("Response :", response.text)
         except requests.exceptions.RequestException as e:
             failed +=1
             print(f'{success+failed}th request failed !!!')
