@@ -30,13 +30,13 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
     - **id** is the Application ID you get it from previous steps
     - **secret** is the Application secret you get it from previous steps
     - Execute, Select admin account the prompt and save the refresh token.
-6. Install JsonHandle chrome extention and open it. Paste the access_token acquired from previous step in the dialog box and copy the refresh token from it
+6. Install JsonHandle chrome extention and open it. Paste the access_token acquired from previous step in the dialog box and copy the `refresh_token` from it
 7. Keep Application ID, Secret, Refresh_token handly you will need it in the next step
 8. Go to the project settings and from the left hand side menu select Secrets and Variables > Actions
 9. Click **New repository secrets.** and create three variables and set the value as given below
-    - Name: **`CONFIG_ID`** value `client_id=r'your applcation_id'` (within the quotes)
-    - Name: **`CONFIG_KEY`** value `client_secret=r'your_secret'`
-    - Name: **`REFRESH_TOKEN`** value `refresh_token=r'your_refresh_token'`
+    - Name: **`CONFIG_ID`** value is App ID
+    - Name: **`CONFIG_KEY`** value is App secret
+    - Name: **`REFRESH_TOKEN`** value is Refresh token
 10. Goto the project setting again and choose Actions menu and scroll down until you see **Workflow permissions click Read and write permission option**
 11. Go to your personal settings page on GitHub, select Developer settings > Personal access tokens > Generate new token.
     - Set the name to **`GITHUB_TOKEN`**.
@@ -49,5 +49,3 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
 
 - The default setting is to run three rounds every six hours from Monday to Friday. You can modify your own crontab to change the frequency and time.
 - If you need to modify the API calls, you can check the Graph Explorer at **[https://developer.microsoft.com/graph/graph-explorer/preview](https://developer.microsoft.com/graph/graph-explorer/preview)**.
-- The GitHub Action provides a virtual environment with 2-core CPU, 7 GB RAM memory, and 14 GB SSD hard disk space.
-- Each repository can only support 20 concurrent calls.

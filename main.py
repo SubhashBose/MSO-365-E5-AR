@@ -2,6 +2,7 @@ import requests
 import json
 import time
 import random 
+import os
 
 # Register the azure app first and make sure the app has the following permissions:
 # files: Files.Read.All、Files.ReadWrite.All、Sites.Read.All、Sites.ReadWrite.All
@@ -10,7 +11,9 @@ import random
 # After registration, you must click on behalf of xxx to grant administrator consent, otherwise outlook api cannot be called
 
 
-
+client_id=os.environ['CONFIG_ID']
+client_secret=os.environ['CONFIG_KEY']
+refresh_token=os.environ['REFRESH_TOKEN']
 
 
 
@@ -85,5 +88,5 @@ def main():
     print('Number of successful calls are :', str(success))
     print('Number of failed calls are :', str(failed))
 
-for _ in range(3):
+for _ in range(4):
     main()
