@@ -69,9 +69,11 @@ def main():
             if response.status_code == 200:
                 num += 1
                 print(f'{num}th Call successful')
+            else:
+                print(f'{num}th Call failed !!!')
+                print(response)
         except requests.exceptions.RequestException as e:
             print(e)
-            print(response)
             pass
     localtime = time.asctime(time.localtime(time.time()))
     print('The end of this run is :', localtime)
