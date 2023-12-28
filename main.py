@@ -71,6 +71,7 @@ def main():
                 print(f'{num}th Call successful')
         except requests.exceptions.RequestException as e:
             print(e)
+            print(response)
             pass
     localtime = time.asctime(time.localtime(time.time()))
     print('The end of this run is :', localtime)
