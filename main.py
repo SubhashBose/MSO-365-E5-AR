@@ -62,22 +62,27 @@ def main():
         'Authorization': access_token,
         'Content-Type': 'application/json'
     })
-    num = 0
+    success = 0
+    failed = 0
     for endpoint in endpoints:
         try:
             response = session.get(endpoint)
             if response.status_code == 200:
-                num += 1
-                print(f'{num}th Call successful')
+                success += 1
+                print(f'{success+failed}th Call successful')
             else:
-                print(f'{num}th Call failed !!!')
-                print(response)
+                failed +=1
+                print(f'{success+failed}th Call failed !!!')
+                print(response.text)
         except requests.exceptions.RequestException as e:
+            failed +=1
+            print(f'{success+failed}th request failed !!!')
             print(e)
             pass
     localtime = time.asctime(time.localtime(time.time()))
     print('The end of this run is :', localtime)
-    print('Number of calls is :', str(len(endpoints)))
+    print('Number of successful calls are :', str(success))
+    print('Number of failed calls are :', str(failed))
 
 for _ in range(3):
     main()
