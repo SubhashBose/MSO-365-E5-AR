@@ -46,7 +46,7 @@ jobs:
         git config --global user.email SBxxxxx@gmail.com
         git config --global user.name SB
         git add .
-        git commit -m "Update new refresh token with MSO_E5_Dev_AutoRenew" -a
+        git commit -m "Update new refresh token with MSO_E5_Dev_AR" -a
     - name: Push changes
       uses: ad-m/github-push-action@v0.6.0
       with:

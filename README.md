@@ -1,4 +1,4 @@
-# **MSO_E5_Dev_AutoRenew**
+# **MSO_E5_Dev_AR**
 
 Python application based on Git Actions that use Microsoft Graph API. This guide will provide you with easy-to-understand steps for setting up and running the application.
 
@@ -11,8 +11,7 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
 
 ## **Setup Steps (Encrypted Secure Version)**
 
-1. Fork the MSO_E5_Dev_AutoRenew repository to your GitHub account.
-2. Register a new application in Azure Active Directory.
+1. Register a new application in Azure Active Directory.
     - Go to https://entra.microsoft.com/
     - Applications > App reginstrations > New registration
     - Select "Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)"
@@ -48,4 +47,4 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
 ## **Additional Information**
 
 - The default setting is to run three rounds every six hours from Monday to Friday. You can modify your own crontab to change the frequency and time.
-- If you need to modify the API calls, you can check the Graph Explorer at **[https://developer.microsoft.com/graph/graph-explorer/preview](https://developer.microsoft.com/graph/graph-explorer/preview)**.
+- If you need to modify the API calls, you can check the Graph Explorer at https://developer.microsoft.com/graph/graph-explorer/.
