@@ -11,8 +11,8 @@ import os
 # After registration, you must click on behalf of xxx to grant administrator consent, otherwise outlook api cannot be called
 
 
-client_id=os.environ['CONFIG_ID']
-client_secret=os.environ['CONFIG_KEY']
+client_id=os.environ['CONFIG_APPID']
+client_secret=os.environ['CONFIG_SECRET']
 refresh_token=os.environ['REFRESH_TOKEN']
 
 
