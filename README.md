@@ -19,7 +19,7 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
     - Save Application ID
     - Go to Certificates & Secrets > New 
     - Save the Secret value.
-3. Set API permissions.
+3. Set API permissions. (may not be required)
     - Go to API Permissions > NEW
     - Select Microsoft graph > Application permissions
     - Select the following permissions: **`files.read.all`**, **`files.readwrite.all`**, **`sites.read.all`**, **`sites.readwrite.all`**, **`user.read.all`**, **`user.readwrite.all`**, **`directory.read.all`**, **`directory.readwrite.all`**, **`mail.read`**, **`mail.readwrite`**, **`mailboxsetting.read`**, and **`mailboxsetting.readwrite`**.
@@ -28,8 +28,9 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
 5. Execute the command **`rclone authorize "onedrive" "id" "secret"`**.
     - **id** is the Application ID you get it from previous steps
     - **secret** is the Application secret you get it from previous steps
-    - Execute, Select admin account the prompt and save the refresh token.
-6. Install JsonHandle chrome extention and open it. Paste the access_token acquired from previous step in the dialog box and copy the `refresh_token` from it
+    - Execute, When browser window opens and MS login page shows, edit the URL's `scope` query part and replace its value with  `Mail.Read+Mail.ReadWrite+MailboxSettings.Read+MailboxSettings.ReadWrite+Directory.Read.All+Directory.ReadWrite.All+Files.Read.All+Files.ReadWrite.All+Sites.Read.All+Sites.ReadWrite.All+User.Read+User.Read.All+User.ReadWrite.All+offline_access`
+    - Press Enter, Select admin account.
+    - on success, go to the prompt and save the `refresh_token`.
 7. Keep Application ID, Secret, Refresh_token handly you will need it in the next step
 8. Go to the project settings and from the left hand side menu select Secrets and Variables > Actions
 9. Click **New repository secrets.** and create three variables and set the value as given below
@@ -37,7 +38,7 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
     - Name: **`CONFIG_KEY`** value is App secret
     - Name: **`REFRESH_TOKEN`** value is Refresh token
 10. Goto the project setting again and choose Actions menu and scroll down until you see **Workflow permissions click Read and write permission option**
-11. Go to your personal settings page on GitHub, select Developer settings > Personal access tokens > Generate new token.
+11. Go to your personal settings page on GitHub, select Developer settings > Personal access tokens > Generate new token. (may not be needed)
     - Set the name to **`GITHUB_TOKEN`**.
     - Check the options **`repo`**, **`admin:repo_hook`**, and **`workflow`**.
     - Generate the token.
