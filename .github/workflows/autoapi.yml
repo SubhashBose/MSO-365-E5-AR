@@ -33,13 +33,20 @@ jobs:
     - name: Install requests #Installation requests
       run: |
         pip install requests
-    - name: Test Api
+    - name: Test Api Inst1
       env: 
         CONFIG_APPID: ${{ secrets.CONFIG_APPID }} # secrets_id prepare
         CONFIG_SECRET: ${{ secrets.CONFIG_SECRET }} # secrets_key prepare
         REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }} # refresh_token prepare
       run: | 
         echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
+        python3 main.py
+    - name: Test Api Inst2  # For second Tenancy
+      env: 
+        CONFIG_APPID: ${{ secrets.CONFIG_APPID2 }} # secrets_id prepare
+        CONFIG_SECRET: ${{ secrets.CONFIG_SECRET2 }} # secrets_key prepare
+        REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN2 }} # refresh_token prepare
+      run: |
         python3 main.py
     - name: Commit #Upload a new refresh_token to the repository
       run: |
