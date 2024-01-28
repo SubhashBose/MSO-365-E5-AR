@@ -2,8 +2,7 @@
 
 Python application based on Git Actions that use Microsoft Graph API. This guide will provide you with easy-to-understand steps for setting up and running the application.
 
-### Special Notes/Thanks ###
-* Normal version address: github.com/HarryVed/Microsoft-Developer-Subscription-Renew-Free
+* Original version address: github.com/HarryVed/Microsoft-Developer-Subscription-Renew-Free
 
 ## **Prerequisites**
 - A GitHub account
@@ -15,7 +14,7 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
     - Go to https://entra.microsoft.com/
     - Applications > App reginstrations > New registration
     - Select "Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)"
-    - Select "Web" for the redirect URL, and enter "**[http://localhost:53682/](http://localhost:53682/)**" for the redirect URL.
+    - Select "Web" for the redirect URL, and enter "http://localhost:53682/" for the redirect URL.
     - Save Application ID
     - Go to Certificates & Secrets > New 
     - Save the Secret value.
@@ -30,7 +29,7 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
     - **secret** is the Application secret you get it from previous steps
     - Execute, When browser window opens and MS login page shows, edit the URL's `scope` query part and replace its value with  `Mail.Read+Mail.ReadWrite+MailboxSettings.Read+MailboxSettings.ReadWrite+Directory.Read.All+Directory.ReadWrite.All+Files.Read.All+Files.ReadWrite.All+Sites.Read.All+Sites.ReadWrite.All+User.Read+User.Read.All+User.ReadWrite.All+offline_access`
     - Press Enter, Select admin account.
-    - on success, go to the prompt and save the `refresh_token`.
+    - on success, go to the prompt and save the `refresh_token` values from JSON output.
 7. Keep Application ID, Secret, Refresh_token handly you will need it in the next step
 8. Go to the project settings and from the left hand side menu select Secrets and Variables > Actions
 9. Click **New repository secrets.** and create three variables and set the value as given below
@@ -47,5 +46,5 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
 
 ## **Additional Information**
 
-- The default setting is to run three rounds every six hours from Monday to Friday. You can modify your own crontab to change the frequency and time.
+- The default setting is to run three rounds every four hours. You can modify your own crontab to change the frequency and time.
 - If you need to modify the API calls, you can check the Graph Explorer at https://developer.microsoft.com/graph/graph-explorer/.
