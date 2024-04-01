@@ -34,6 +34,7 @@ jobs:
       run: |
         pip install requests
     - name: Test Api Inst1
+      id: api-inst1
       env: 
         CONFIG_APPID: ${{ secrets.CONFIG_APPID }} # secrets_id prepare
         CONFIG_SECRET: ${{ secrets.CONFIG_SECRET }} # secrets_key prepare
@@ -41,7 +42,14 @@ jobs:
       run: | 
         echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
         python3 main.py
+    - name: Update Token
+      uses: gliech/create-github-secret-action@v1
+      with:
+        name: REFRESH_TOKEN
+        value: ${{ steps.api-inst1.outputs.OD_REFRESH_TOKEN }}
+        pa_token: ${{ secrets.GH_PA_TOKEN }}
     - name: Test Api Inst2  # For second Tenancy
+      id: api-inst2
       env: 
         CONFIG_APPID: ${{ secrets.CONFIG_APPID2 }} # secrets_id prepare
         CONFIG_SECRET: ${{ secrets.CONFIG_SECRET2 }} # secrets_key prepare
