@@ -42,7 +42,7 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
     - Check the options **`repo`**, **`admin:repo_hook`**, and **`workflow`**.
     - Generate the token.
 11. Go to your personal settings page on GitHub, select Developer settings > Personal access tokens > Generate new token.
-    - Check the options **`repo`**, **`admin:repo_hook`**, and **`workflow`**.
+    - Check the options **`public_repo`**.
     - Generate the token.
     - Copy the token.
     - Now create a new repository action secret
