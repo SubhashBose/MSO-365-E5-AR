@@ -47,7 +47,7 @@ jobs:
       with:
         name: REFRESH_TOKEN
         value: ${{ steps.api-inst1.outputs.OD_REFRESH_TOKEN }}
-        pa_token: ${{ secrets.GITHUB_TOKEN }}
+        pa_token: ${{ secrets.GH_PA_TOKEN }}
     - name: Test Api Inst2  # For second Tenancy
       id: api-inst2
       env: 
