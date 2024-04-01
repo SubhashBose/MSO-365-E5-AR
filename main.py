@@ -14,6 +14,7 @@ import os
 client_id=os.environ['CONFIG_APPID']
 client_secret=os.environ['CONFIG_SECRET']
 refresh_token=os.environ['REFRESH_TOKEN']
+github_output=os.environ['GITHUB_OUTPUT']
 
 
 
@@ -53,6 +54,8 @@ def get_access_token(refresh_token, client_id, client_secret):
     html = requests.post('https://login.microsoftonline.com/common/oauth2/v2.0/token', data=data, headers=headers)
     jsontxt = json.loads(html.text)
     refresh_token = jsontxt['refresh_token']
+    with open(github_output, "w") as text_file:
+        text_file.write("OD_REFRESH_TOKEN=%s" % refresh_token)
     access_token = jsontxt['access_token']
     return access_token
 
