@@ -41,8 +41,8 @@ jobs:
         REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }} # refresh_token prepare
       run: | 
         echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
-        echo "::add-mask::$OD_REFRESH_TOKEN"
         python3 main.py
+        echo "::add-mask::$OD_REFRESH_TOKEN"
     - name: Update Token
       uses: gliech/create-github-secret-action@v1
       with:
@@ -56,8 +56,8 @@ jobs:
         CONFIG_SECRET: ${{ secrets.CONFIG_SECRET2 }} # secrets_key prepare
         REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN2 }} # refresh_token prepare
       run: |
-        echo "::add-mask::$OD_REFRESH_TOKEN"
         python3 main.py
+        echo "::add-mask::$OD_REFRESH_TOKEN"
     - name: Update Token
       uses: gliech/create-github-secret-action@v1
       with:
