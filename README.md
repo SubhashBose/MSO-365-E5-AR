@@ -33,8 +33,8 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
 7. Keep Application ID, Secret, Refresh_token handly you will need it in the next step
 8. Go to the project settings and from the left hand side menu select Secrets and Variables > Actions
 9. Click **New repository secrets.** and create three variables and set the value as given below
-    - Name: **`CONFIG_ID`** value is App ID
-    - Name: **`CONFIG_KEY`** value is App secret
+    - Name: **`CONFIG_APPID`** value is App ID
+    - Name: **`CONFIG_SECRET`** value is App secret
     - Name: **`REFRESH_TOKEN`** value is Refresh token
 10. Goto the project setting again and choose Actions menu and scroll down until you see **Workflow permissions click Read and write permission option**
 11. Go to your personal settings page on GitHub, select Developer settings > Personal access tokens > Generate new token. (NOT NEEDED ANYMORE)
