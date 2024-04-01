@@ -37,12 +37,18 @@ Python application based on Git Actions that use Microsoft Graph API. This guide
     - Name: **`CONFIG_KEY`** value is App secret
     - Name: **`REFRESH_TOKEN`** value is Refresh token
 10. Goto the project setting again and choose Actions menu and scroll down until you see **Workflow permissions click Read and write permission option**
-11. Go to your personal settings page on GitHub, select Developer settings > Personal access tokens > Generate new token. (may not be needed)
+11. Go to your personal settings page on GitHub, select Developer settings > Personal access tokens > Generate new token. (NOT NEEDED ANYMORE)
     - Set the name to **`GITHUB_TOKEN`**.
     - Check the options **`repo`**, **`admin:repo_hook`**, and **`workflow`**.
     - Generate the token.
-12. Run the action Workflow
-13. Click on the Actions tab above to see the log of each run and check if the API is called correctly and if there are any errors.
+11. Go to your personal settings page on GitHub, select Developer settings > Personal access tokens > Generate new token.
+    - Check the options **`repo`**, **`admin:repo_hook`**, and **`workflow`**.
+    - Generate the token.
+    - Copy the token.
+    - Now create a new repository action secret
+    - Set the name to **`GH_PA_TOKEN`**, and fill the value with personal access token value.
+13. Run the action Workflow
+14. Click on the Actions tab above to see the log of each run and check if the API is called correctly and if there are any errors.
 
 ## **Additional Information**
 
