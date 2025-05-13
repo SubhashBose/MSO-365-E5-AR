@@ -91,6 +91,8 @@ def main():
     print('The end of this run is :', localtime)
     print('Number of successful calls are :', str(success))
     print('Number of failed calls are :', str(failed))
+    if failed>success:
+        raise Exception("Too many fails!")
 
 for _ in range(4):
     main()
