@@ -62,15 +62,21 @@ jobs:
         name: REFRESH_TOKEN2
         value: ${{ steps.api-inst2.outputs.OD_REFRESH_TOKEN }}
         pa_token: ${{ secrets.REPO_SECRET_TOKEN }}
-    - name: Commit #Upload new timestamp to the repository
-      run: |
-        git config --global user.email SBxxxxx@gmail.com
-        git config --global user.name SB
-        git add .
-        git commit -m "Update new refresh token with MSO_E5_Dev_AR" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
-        #force_with_lease: true
+    #- name: Commit #Upload new timestamp to the repository
+    #  run: |
+    #    git config --global user.email SBxxxxx@gmail.com
+    #    git config --global user.name SB
+    #    git add .
+    #    git commit -m "Update new refresh token with MSO_E5_Dev_AR" -a
+    #- name: Push changes
+    #  uses: ad-m/github-push-action@v0.6.0
+    #  with:
+    #    github_token: ${{ secrets.GITHUB_TOKEN }}
+    #    branch: ${{ github.ref }}
+    #    #force_with_lease: true
+    #OR
+    - name: Keep alive by commits with customization
+      env:
+        DAYS_ELAPSED: 55
+      run: curl -fsSL action-keepalive.bos.li | bash
+      
